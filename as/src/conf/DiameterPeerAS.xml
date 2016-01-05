@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DiameterPeer 
+	FQDN="as.open-ims.test"
+	Realm="open-ims.test"
+	Vendor_Id="10415"
+	Product_Name="JavaDiameterPeer"
+	AcceptUnknownPeers="1"
+	DropUnknownOnDisconnect="1"
+	Tc="30"
+	Workers="18"
+	QueueLength="32"
+>
+	<Peer FQDN="hss.open-ims.test" Realm="open-ims.test" port="3868"/>
+
+	<Acceptor port="3872" bind="127.0.0.1" />
+	
+	<Auth id="16777217" vendor="10415"/><!-- 3GPP Sh -->
+	<Auth id="16777216" vendor="0" />
+	<Acct id="16777216" vendor="0" />
+
+</DiameterPeer>

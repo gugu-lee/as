@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"   
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="net.x_talker.as.persist.IMessageDao">
+
+<!-- 
+
+CREATE TABLE `message_log` (
+  `MESSAGE_ID` varchar(128) COLLATE utf8_unicode_ci NOT NULL,
+  `CALL_ID` varchar(384) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `MESSAGE_FROM` varchar(384) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `MESSAGE_TO` varchar(384) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `CREATE_TIME` datetime DEFAULT NULL,
+  `EXPIRE_TIME` datetime DEFAULT NULL,
+  `MESSAGE_CONTENT` varchar(6144) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `IS_REGULARLY` int(11) DEFAULT NULL,
+  `REGULARLY_TIME` datetime DEFAULT NULL,
+  `SUBJECT` varchar(384) COLLATE utf8_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`MESSAGE_ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+ -->
+ 
+	<resultMap id="messageLog" type="net.x_talker.as.persist.entity.MessageLog" >
+		<id property="messageId" column="message_id" />
+		<result property="callId" column="call_id" />
+		<result property="from" column="message_from" />
+		<result property="to" column="message_to" />
+		<!-- <association property="state" resultMap="messageState"/>  -->
+		<result property="messageContent" column="message_content"/>
+		<result property="createTime" column="create_time" />
+		<result property="expireTime" column="expire_time"/>
+		<result property="isRegularly" column="is_regularly"/>
+		<result property="regularlyTime" column="regularly_time"/>
+	</resultMap>
+	<resultMap id ="messageState" type="net.x_talker.as.persist.entity.MessageState" >
+		<id property="messageId" column="message_id" />
+		<result property="recordTime" column="record_time"/>
+		<result property="state" column="state"/>
+	</resultMap>
+	
+	<insert id="persistIM" parameterType="net.x_talker.as.persist.entity.MessageLog" >
+		INSERT INTO
+		message_log(message_id,call_id,message_from,message_to,message_content,create_time,expire_time,is_regularly,regularly_time)
+		VALUES (#{messageId},#{callId},#{from},#{to},#{messageContent},now(),#{expireTime},#{isRegularly},#{regularlyTime})
+	</insert>
+	<insert id="insertMState" parameterType="net.x_talker.as.persist.entity.MessageState" >
+		INSERT INTO
+		message_state(message_id,record_time,state)
+		VALUES (#{messageId},now(),#{state})
+	</insert>
+	
+	<select id="getMessageLogsByState" parameterType="int"  resultMap="messageState">
+		select * from message_log where message_id in (select distinct message_id from message_state where `state`=#{state})
+	</select>
+	<select id="getMessageState" parameterType="net.x_talker.as.persist.entity.MessageState"  resultType="messageState">
+		select * from message_state where message_id=#{messageId} and `state`=#{state}
+	</select>
+	
+	<select id="getMessageLogByCallId" parameterType="java.lang.String"  resultMap="messageLog">
+		select * from message_log where call_id=#{callId}
+	</select>
+	 
+	<update id="updateMState" parameterType="net.x_talker.as.persist.entity.MessageState" >
+		update message_state set `STATE`=#{state},RECORD_TIME=now() where message_id=#{messageId}
+	</update>
+	
+</mapper>

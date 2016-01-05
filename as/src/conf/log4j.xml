@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+
+	<appender name="sip-servlet"
+		class="net.x_talker.log.appender.CustomDailyRollingFileAppender">
+		<param name="file" value="../logs/sip-servlet.txt" />
+		<param name="datePattern" value="'.'yyyy-MM-dd" />
+		<param name="maxBackupIndex" value="4" />
+		<param name="append" value="true" />		
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d [%t] %p - %m%n" />
+		</layout>
+		<filter class="org.apache.log4j.varia.LevelRangeFilter">
+			<param name="LevelMin" value="INFO" />
+			<param name="LevelMax" value="ERROR" />
+		</filter>
+	</appender>
+
+	<appender name="console" class="org.apache.log4j.ConsoleAppender">
+		<param name="Target" value="System.out" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d{yyyy-MM-dd HH:mm:ss} %-3p %3x %C %L - %m%n" />
+		</layout>
+		<filter class="org.apache.log4j.varia.LevelRangeFilter">
+			<param name="LevelMin" value="INFO" />
+			<param name="LevelMax" value="ERROR" />
+		</filter>
+	</appender> 
+	<appender name="IMS_INFO"
+		class="net.x_talker.log.appender.CustomDailyRollingFileAppender">
+		<param name="file" value="../logs/ims_info.log" />
+		<param name="datePattern" value="'.'yyyy-MM-dd" />
+		<param name="maxBackupIndex" value="4" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d{yyyy-MM-dd HH:mm:ss} %-3p %3x %C %L - %m%n" />
+		</layout>
+		<filter class="org.apache.log4j.varia.LevelRangeFilter">
+			<param name="LevelMin" value="INFO" />
+			<param name="LevelMax" value="INFO" />
+		</filter>
+	</appender>
+	<appender name="IMS_WARN"
+		class="net.x_talker.log.appender.CustomDailyRollingFileAppender">
+		<param name="file" value="../logs/ims_warn.log" />
+		<param name="datePattern" value="'.'yyyy-MM-dd" />
+		<param name="maxBackupIndex" value="4" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d{yyyy-MM-dd HH:mm:ss} %-3p %3x %C %L - %m%n" />
+		</layout>
+		<filter class="org.apache.log4j.varia.LevelRangeFilter">
+			<param name="LevelMin" value="WARN" />
+			<param name="LevelMax" value="WARN" />
+		</filter>
+	</appender>
+	<appender name="IMS_ERROR"
+		class="net.x_talker.log.appender.CustomDailyRollingFileAppender">
+		<param name="file" value="../logs/ims_error.log" />
+		<param name="datePattern" value="'.'yyyy-MM-dd" />
+		<param name="maxBackupIndex" value="4" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d{yyyy-MM-dd HH:mm:ss} %-3p %3x %C %L - %m%n" />
+		</layout>
+		<filter class="org.apache.log4j.varia.LevelRangeFilter">
+			<param name="LevelMin" value="ERROR" />
+			<param name="LevelMax" value="ERROR" />
+		</filter>
+	</appender>
+	<appender name="IMS_DEBUG"
+		class="net.x_talker.log.appender.CustomDailyRollingFileAppender">
+		<param name="file" value="../logs/ims_debug.log" />
+		<param name="datePattern" value="'.'yyyy-MM-dd" />
+		<param name="maxBackupIndex" value="4" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d{yyyy-MM-dd HH:mm:ss} %-3p %3x %C %L - %m%n" />
+		</layout>
+		<filter class="org.apache.log4j.varia.LevelRangeFilter">
+			<param name="LevelMin" value="DEBUG" />
+			<param name="LevelMax" value="DEBUG" />
+		</filter>
+	</appender>
+
+	<appender name="diagnozelog"
+		class="net.x_talker.log.appender.CustomDailyRollingFileAppender">
+		<param name="file" value="../logs/ims_diagnozelog.log" />
+		<param name="datePattern" value="'.'yyyy-MM-dd" />
+		<param name="maxBackupIndex" value="4" />
+		<param name="append" value="true" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d [%t] %p - %m%n" />
+		</layout>
+	</appender>
+
+	<appender name="pmanalysislog"
+		class="net.x_talker.log.appender.CustomDailyRollingFileAppender">
+		<param name="file" value="../logs/ims_pmanalysislog.log" />
+		<param name="datePattern" value="'.'yyyy-MM-dd" />
+		<param name="maxBackupIndex" value="4" />
+		<param name="append" value="true" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d %-5p [%c] (%t) %m%n" />
+		</layout>
+	</appender>
+
+	<category name="org.mobicents">
+		<appender-ref ref="sip-servlet" />		
+	</category>
+	<category name="gov.nist">
+		<appender-ref ref="sip-servlet" />
+	</category> 
+	<category name="diagnozelog">
+		<appender-ref ref="diagnozelog" />
+	</category>
+	<category name="pmanalysislog">
+		<appender-ref ref="pmanalysislog" />
+	</category>
+	<root>
+		<appender-ref ref="console" />
+		<appender-ref ref="IMS_INFO" />
+		<appender-ref ref="IMS_WARN" />
+		<appender-ref ref="IMS_ERROR" />
+		<appender-ref ref="IMS_DEBUG" />
+	</root>
+</log4j:configuration>

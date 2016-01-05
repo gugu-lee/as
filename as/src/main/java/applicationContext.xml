@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="   
+         http://www.springframework.org/schema/beans 
+         http://www.springframework.org/schema/beans/spring-beans.xsd
+   		 http://www.springframework.org/schema/context 
+   		 http://www.springframework.org/schema/context/spring-context.xsd
+   		 http://www.springframework.org/schema/tx 
+   		 http://www.springframework.org/schema/tx/spring-tx.xsd
+   		 http://www.springframework.org/schema/aop
+   		 http://www.springframework.org/schema/aop/spring-aop-4.0.xsd" >
+   		 
+
+	<context:annotation-config/>
+	<!-- 自动扫描所有注解该路径 -->
+	<context:component-scan base-package="net.x_talker.as" />
+	
+	<bean class="org.springframework.context.annotation.CommonAnnotationBeanPostProcessor" />
+	<!-- <bean class="org.springframeword.aop.aspectj.annotation.AnnotationAwareAspectJAutoProxyCreator" /> -->   
+
+
+	<tx:annotation-driven transaction-manager="transactionManager" proxy-target-class="true"/>
+	 
+	<bean id="IMSimpleResponse" class="net.x_talker.as.im.inf.IMSimpleResponse"></bean>
+	<bean id="IMSimpleReceiver" class="net.x_talker.as.im.inf.IMSimpleReceiver"></bean>
+	<import resource="aop.xml"/>
+</beans>
