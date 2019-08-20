@@ -3,8 +3,8 @@ package net.x_talker.as.sh.operate;
 
 import org.apache.log4j.Logger;
 
-import net.x_talker.DiameterPeer.DiameterPeer;
-import net.x_talker.DiameterPeer.data.DiameterMessage;
+import org.freeims.diameterpeer.DiameterPeer;
+import org.freeims.diameterpeer.data.DiameterMessage;
 import net.x_talker.as.sh.diameter.DiameterConstants;
 import net.x_talker.as.sh.diameter.UtilAVP;
 

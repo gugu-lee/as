@@ -3,9 +3,9 @@ package net.x_talker.as.sh.diameter;
 import java.util.Iterator;
 import java.util.Vector;
 
-import net.x_talker.DiameterPeer.data.AVP;
-import net.x_talker.DiameterPeer.data.AVPDecodeException;
-import net.x_talker.DiameterPeer.data.DiameterMessage;
+import org.freeims.diameterpeer.data.AVP;
+import org.freeims.diameterpeer.data.AVPDecodeException;
+import org.freeims.diameterpeer.data.DiameterMessage;
 
 public class UtilAVP {
 

@@ -1,6 +1,4 @@
 package net.x_talker.as;
-import javax.annotation.Resource;
-import javax.sip.ClientTransaction;
 import javax.sip.DialogTerminatedEvent;
 import javax.sip.IOExceptionEvent;
 import javax.sip.RequestEvent;
@@ -10,30 +8,22 @@ import javax.sip.SipListener;
 import javax.sip.TimeoutEvent;
 import javax.sip.TransactionTerminatedEvent;
 import javax.sip.header.CallIdHeader;
-import javax.sip.header.MaxForwardsHeader;
-import javax.sip.header.ViaHeader;
 import javax.sip.message.MessageFactory;
 import javax.sip.message.Request;
 import javax.sip.message.Response;
 
 import org.apache.log4j.Logger;
-import org.springframework.stereotype.Repository;
-
-import gov.nist.javax.sip.SipStackImpl;
-import gov.nist.javax.sip.header.Via;
-import gov.nist.javax.sip.header.ViaList;
-import gov.nist.javax.sip.message.SIPMessage;
-import gov.nist.javax.sip.message.SIPRequest;
-import gov.nist.javax.sip.message.SIPResponse;
-import gov.nist.javax.sip.stack.SIPClientTransaction;
-import gov.nist.javax.sip.stack.SIPServerTransaction;
+import org.freeims.javax.sip.SipStackImpl;
+import org.freeims.javax.sip.message.SIPMessage;
+import org.freeims.javax.sip.message.SIPRequest;
+import org.freeims.javax.sip.message.SIPResponse;
+import org.freeims.javax.sip.stack.SIPServerTransaction;
 import net.x_talker.as.im.container.entity.XTalkerSipMsg;
 import net.x_talker.as.im.inf.IMReceiverInf;
 import net.x_talker.as.im.inf.IMResponseInf;
 import net.x_talker.as.im.inf.IMSimpleReceiver;
 import net.x_talker.as.im.inf.IMSimpleResponse;
 import net.x_talker.as.im.servlet.IMResponse;
-import net.x_talker.as.im.util.SpringBeanUtil;
 
 
 public class AsSipListener implements SipListener {

@@ -13,10 +13,10 @@ import javax.sip.message.Request;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Repository;
 
-import gov.nist.javax.sip.SipStackImpl;
-import gov.nist.javax.sip.message.SIPMessage;
-import gov.nist.javax.sip.message.SIPRequest;
-import gov.nist.javax.sip.stack.SIPClientTransaction;
+import org.freeims.javax.sip.SipStackImpl;
+import org.freeims.javax.sip.message.SIPMessage;
+import org.freeims.javax.sip.message.SIPRequest;
+import org.freeims.javax.sip.stack.SIPClientTransaction;
 import net.x_talker.as.Main;
 import net.x_talker.as.common.vo.BizConsts;
 import net.x_talker.as.im.container.MessageStateContainer;

@@ -1,6 +1,6 @@
 package net.x_talker.as.im.handler;
 
-import gov.nist.javax.sip.header.SIPHeader;
+import org.freeims.javax.sip.header.SIPHeader;
 import net.x_talker.as.common.util.Util;
 import net.x_talker.as.common.vo.BizConsts;
 import net.x_talker.as.im.container.MessageContentFileContainer;
@@ -30,7 +30,7 @@ import javax.sip.header.CallIdHeader;
 import javax.sip.header.ExpiresHeader;
 import javax.sip.message.Request;
 import javax.sip.message.Response;
-import gov.nist.javax.sip.message.SIPRequest;
+import org.freeims.javax.sip.message.SIPRequest;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Component;
 

@@ -1,17 +1,17 @@
 package net.x_talker.as.im.util;
 
-import gov.nist.javax.sip.address.AddressFactoryImpl;
-import gov.nist.javax.sip.address.AddressImpl;
-import gov.nist.javax.sip.header.ContentLength;
-import gov.nist.javax.sip.header.RequestLine;
-import gov.nist.javax.sip.header.Route;
-import gov.nist.javax.sip.header.RouteList;
-import gov.nist.javax.sip.header.SIPHeader;
-import gov.nist.javax.sip.header.SIPHeaderList;
-import gov.nist.javax.sip.header.Via;
-import gov.nist.javax.sip.header.ViaList;
-import gov.nist.javax.sip.header.ims.SIPHeaderNamesIms;
-import gov.nist.javax.sip.message.SIPMessage;
+import org.freeims.javax.sip.address.AddressFactoryImpl;
+import org.freeims.javax.sip.address.AddressImpl;
+import org.freeims.javax.sip.header.ContentLength;
+import org.freeims.javax.sip.header.RequestLine;
+import org.freeims.javax.sip.header.Route;
+import org.freeims.javax.sip.header.RouteList;
+import org.freeims.javax.sip.header.SIPHeader;
+import org.freeims.javax.sip.header.SIPHeaderList;
+import org.freeims.javax.sip.header.Via;
+import org.freeims.javax.sip.header.ViaList;
+import org.freeims.javax.sip.header.ims.SIPHeaderNamesIms;
+import org.freeims.javax.sip.message.SIPMessage;
 import net.x_talker.as.Main;
 import net.x_talker.as.common.vo.BizConsts;
 import net.x_talker.as.im.container.entity.XTalkerSipMsg;
@@ -51,7 +51,7 @@ import javax.sip.header.ViaHeader;
 import javax.sip.message.MessageFactory;
 import javax.sip.message.Request;
 
-import gov.nist.javax.sip.message.SIPRequest;
+import org.freeims.javax.sip.message.SIPRequest;
 
 import org.apache.log4j.Logger;
 

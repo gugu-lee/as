@@ -3,10 +3,10 @@ package net.x_talker.as.sh.diameter;
 import org.apache.log4j.Logger;
 import org.apache.log4j.helpers.Loader;
 
-import net.x_talker.DiameterPeer.DiameterPeer;
-import net.x_talker.DiameterPeer.EventListener;
-import net.x_talker.DiameterPeer.data.DiameterMessage;
-import net.x_talker.DiameterPeer.transaction.TransactionListener;
+import org.freeims.diameterpeer.DiameterPeer;
+import org.freeims.diameterpeer.EventListener;
+import org.freeims.diameterpeer.data.DiameterMessage;
+import org.freeims.diameterpeer.transaction.TransactionListener;
 import net.x_talker.as.sh.container.AsShContainer;
 import net.x_talker.as.sh.task.Task;
 

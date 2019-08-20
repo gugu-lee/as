@@ -1,6 +1,6 @@
 package net.x_talker.as.im.hanlder.contenttype;
 
-import gov.nist.javax.sip.header.SIPHeader;
+import org.freeims.javax.sip.header.SIPHeader;
 import net.x_talker.as.im.container.entity.MessageBody;
 import net.x_talker.as.im.util.MessageBodyParseUtil;
 
@@ -30,7 +30,7 @@ public class MultipartMixedType extends MessageCPIMType {
 	@Override
 	public MessageBody parseMessageBody(Request sipRequest) {
 		String msgText = MessageBodyParseUtil.getContentStr(sipRequest);
-		String contentTypeStr = ((gov.nist.javax.sip.header.ContentType) sipRequest.getHeader(SIPHeader.CONTENT_TYPE))
+		String contentTypeStr = ((org.freeims.javax.sip.header.ContentType) sipRequest.getHeader(SIPHeader.CONTENT_TYPE))
 				.getContentType();
 		CpimHeader ContentTypeheader = new CpimHeader(SIPHeader.CONTENT_TYPE, contentTypeStr);
 		Map<String, String> params = ContentTypeheader.getParams();
