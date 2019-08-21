@@ -1,10 +1,7 @@
 package net.x_talker.as.im.inf;
 
-import java.io.IOException;
 import java.sql.Timestamp;
 
-import javax.sip.ClientTransaction;
-import javax.sip.SipStack;
 import javax.sip.address.Address;
 import javax.sip.address.URI;
 import javax.sip.header.CallIdHeader;
@@ -20,12 +17,9 @@ import org.freeims.javax.sip.stack.SIPClientTransaction;
 import net.x_talker.as.Main;
 import net.x_talker.as.common.vo.BizConsts;
 import net.x_talker.as.im.container.MessageStateContainer;
-import net.x_talker.as.im.container.SendIMContainer;
 import net.x_talker.as.im.container.SendedIMContainer;
 import net.x_talker.as.im.container.entity.XTalkerSipMsg;
-import net.x_talker.as.im.container.entity.ReceiptMessage;
 import net.x_talker.as.im.container.entity.ShortMessage;
-import net.x_talker.as.im.domain.DomainSelect;
 import net.x_talker.as.im.util.PropertiesUtil;
 import net.x_talker.as.im.util.SipMessageConvertUtil;
 import net.x_talker.as.persist.entity.MessageState;

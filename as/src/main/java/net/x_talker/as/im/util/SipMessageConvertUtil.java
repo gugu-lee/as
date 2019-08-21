@@ -2,18 +2,12 @@ package net.x_talker.as.im.util;
 
 import org.freeims.javax.sip.address.AddressFactoryImpl;
 import org.freeims.javax.sip.address.AddressImpl;
-import org.freeims.javax.sip.header.ContentLength;
-import org.freeims.javax.sip.header.RequestLine;
 import org.freeims.javax.sip.header.Route;
 import org.freeims.javax.sip.header.RouteList;
 import org.freeims.javax.sip.header.SIPHeader;
-import org.freeims.javax.sip.header.SIPHeaderList;
 import org.freeims.javax.sip.header.Via;
-import org.freeims.javax.sip.header.ViaList;
-import org.freeims.javax.sip.header.ims.SIPHeaderNamesIms;
 import org.freeims.javax.sip.message.SIPMessage;
 import net.x_talker.as.Main;
-import net.x_talker.as.common.vo.BizConsts;
 import net.x_talker.as.im.container.entity.XTalkerSipMsg;
 
 /*
@@ -37,16 +31,8 @@ import javax.servlet.sip.SipServletRequest;
 import javax.servlet.sip.URI;
 */
 import java.sql.Timestamp;
-import java.util.Iterator;
-import java.util.List;
-import java.util.ListIterator;
-import java.util.Properties;
-
-import javax.naming.Context;
-import javax.naming.InitialContext;
 import javax.sip.address.Address;
 import javax.sip.address.URI;
-import javax.sip.header.Header;
 import javax.sip.header.ViaHeader;
 import javax.sip.message.MessageFactory;
 import javax.sip.message.Request;
@@ -97,10 +83,12 @@ public class SipMessageConvertUtil {
 	//	str aor;		/**< the save user aor - terminating or originating */
 	//} isc_mark;
 	/**
-	 * a) Request URI：接收方SIP URI b) To：接收方tel URI c)
-	 * From/P-Asserted-Identity：发送方tel URI d)
-	 * 删除包含"+g.ctc.ims-sms"的Accept-Contact（抑制被叫触发） e)
-	 * User-Agent：sms-serv（表示请求来自于SMC） f) Content-Type：text/xml-smml
+	 * a) Request URI：接收方SIP URI 
+	 * b) To：接收方tel URI 
+	 * c) From/P-Asserted-Identity：发送方tel URI 
+	 * d) 删除包含"+g.ctc.ims-sms"的Accept-Contact（抑制被叫触发） 
+	 * e) User-Agent：sms-serv（表示请求来自于SMC） 
+	 * f) Content-Type：text/xml-smml
 	 * 
 	 * @param sipMsg
 	 * @param routeStr

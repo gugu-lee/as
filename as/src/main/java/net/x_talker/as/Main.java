@@ -1,12 +1,6 @@
 package net.x_talker.as;
 
-import java.util.Properties;
-
-import javax.sip.ListeningPoint;
-import javax.sip.PeerUnavailableException;
-import javax.sip.SipFactory;
 import javax.sip.SipProvider;
-import javax.sip.SipStack;
 import javax.sip.message.MessageFactory;
 
 import org.springframework.context.ApplicationContext;
